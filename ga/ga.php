@@ -9,7 +9,11 @@ require_once('population.php');  //supporting population
 require_once('fitnesscalc.php');  //supporting fitnesscalc 
 require_once('algorithm.php');  //supporting fitnesscalc 
 
-$solution_phrase="A genetic algorithm found!";
+
+$default = "A genetic algorithm found!";
+$solution_phrase=readline("Type a solution to find: [Default: '{$default}']");
+$solution_phrase = !empty($solution_phrase) ? $solution_phrase : $default;
+
 algorithm::$uniformRate=0.50;
 algorithm::$mutationRate=0.05;
 algorithm::$poolSize=15; /* crossover how many to select in each pool to breed from */
